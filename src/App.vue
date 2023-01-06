@@ -25,7 +25,7 @@ export default {
 }
 </script>
 
-<style>
+<style global>
   .router-fade-enter-active{
     transition: opacity 0.3s ease-out;
   }
@@ -43,4 +43,79 @@ export default {
   .router-fade-leave-to {
     opacity: 0;
   }
+  .my-navy-font{
+    color: #000A67;
+}
+
+.my-yellow-bg{
+    background-color: #FFB703;
+}
+
+.my-hover-effect{
+    cursor: pointer;
+    transition-property: all;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: 300ms;
+}
+
+.my-bg-triangle{
+    /* clip-path: polygon(0 0, 100% 0, 86% 100%, 0% 100%); */
+    background: #dbcefa;
+    opacity: 0.2;
+    background: linear-gradient(90deg, #d1ecff 75%, rgba(255,255,255,1) 100%);
+    /* d1ecff */
+}
+
+.logo{
+    z-index: 100;
+    color: "#000A67";
+    fill: "#000A67" !important;
+}
+
+.my-navbar{
+        z-index: 50 !important;
+}
+
+.my-navy-border {
+    border-color: #000A67;
+}
+
+.my-navy-bg {
+    background-color: #000A67;
+}
+.my-navy-border:focus {
+    border-color: #FFB703;
+}
+
+.my-yellow-border {
+    border-color: #FFB703;
+}
+
+.my-yellow-text {
+    color: #FFB703;
+}
+
+.bg-test{
+    left: 10%;
+    top: 10%;
+}
+
+.news-list{
+    overflow-y: scroll !important;
+}
+
+::-webkit-scrollbar{
+    width: 1em;
+}
+
+::-webkit-scrollbar-track{
+    background: white;
+    border-radius: 100vw;
+    margin-block: 0.2em;
+}
+
+::-webkit-scrollbar-thumb{
+    background: rgb(189, 195, 212);
+    border-radius: 100vw;
+}
 </style>

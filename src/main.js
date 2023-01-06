@@ -8,7 +8,6 @@ import ExplorePage from './components/pages/ExplorePage.vue'
 // import AboutPage from './components/pages/AboutPage.vue'
 // import PolskaPage from './components/pages/PolskaPage.vue'
 import './assets/tailwind.css'
-import './assets/global.css'
 
 const router = createRouter({
   history: createWebHashHistory(),

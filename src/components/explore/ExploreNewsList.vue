@@ -24,14 +24,13 @@ export default {
             type: Array,
         }
     },
-    inject: ['modalArticle', 'isModalOpen'],
     methods: {
         loadArticle(article){
             this.fetchSingleNews(article)
             setTimeout(() => {
                 this.$emit('setModalOpen', true)
                 console.log(this.isModalOpen)
-            }, 300);
+            }, 100);
         },
         async fetchSingleNews(uri){
             const res = await axios.post(
@@ -42,8 +41,6 @@ export default {
                     + `&apiKey=da1595a0-0013-444e-8eb4-2e30d17dbe27`
                 );
             this.$emit('setModalArticle', res.data[uri].info)
-            console.log(this.modalArticle)
-            // props.setSingleArticle(res.data[uri].info)
         }
     }
 };
