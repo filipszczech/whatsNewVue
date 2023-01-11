@@ -2,7 +2,9 @@
     <div v-for="article in articles || []" :key="article.uri">
         <div class='w-full grid grid-cols-4 gap-3 mb-5 lg:mb-8 border-t-4 my-navy-border rounded-tl-md bg-gray-100'>
             <div class='rounded-bl-md my-navy-border border-4 border-t-0 overflow-hidden'>
-                <a :href="article.url" target="_blank" rel="noopener noreferrer"><img class='h-full w-full object-cover hover:scale-110 transition-all duration-300 ease-in-out' :src="article.image" alt='article-img'/></a>
+                <a :href="article.url" target="_blank" rel="noopener noreferrer">
+                    <img  v-bind:src="article.image" class='h-full w-full object-cover hover:scale-110 transition-all duration-300 ease-in-out' alt='article-img'/>
+                </a>
             </div>
             <div class='col-span-3'>
                 <a :href="article.url" target="_blank" rel="noopener noreferrer"><p class='my-navy-font text-lg lg:text-xl font-semibold mb-3'>{{ article.title }}</p></a>

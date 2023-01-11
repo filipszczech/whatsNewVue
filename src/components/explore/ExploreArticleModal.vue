@@ -32,7 +32,10 @@ export default {
   props: ['article', 'isModalOpen'],
     methods:{
         setModalOpen(state){
-            this.$emit('setModalOpen', state)
+            setTimeout(() => {
+                this.$emit('setModalOpen', state)
+                console.log(this.isModalOpen)
+            }, 100);
         }
     }
 };

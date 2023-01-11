@@ -5,9 +5,9 @@
             <p class='my-navy-font text-2xl sm:text-3xl font-semibold mb-8'>Jakie wiadomości Cię interesują?</p>
             <div class='grid grid-cols-2 gap-5'>
                 <div class='w-full'>
-                    <label>Słowo klucz:</label>
+                    <label for="key-word">Słowo klucz:</label>
                     <br>
-                    <input 
+                    <input id="key-word"
                     class='border-2 rounded-md my-navy-border bg-transparent p-2 w-full' 
                         type="text"
                         v-model="keyWord"
@@ -15,9 +15,9 @@
                     />
                 </div>
                 <div class='w-full'>
-                    <label>kategoria:</label>
+                    <label for="category">kategoria:</label>
                     <br>
-                    <select 
+                    <select id="category"
                         class='border-2 rounded-md my-navy-border bg-transparent p-2 w-full'
                         v-model="category">
                         <option value="dmoz/Computers">IT</option>
@@ -28,9 +28,9 @@
                     </select>
                 </div>
                 <div class='w-full'>
-                    <label>Język:</label>
+                    <label for="language">Język:</label>
                     <br>
-                    <select 
+                    <select id="language"
                     class='border-2 rounded-md my-navy-border bg-transparent p-2 w-full'
                     v-model="country">
                         <option value="eng">angielski</option>
@@ -40,12 +40,10 @@
                     </select>
                 </div>
                 <div class='w-full'>
-                    <label>Liczba wyników:</label>
+                    <label for="results">Liczba wyników:</label>
                     <br>
-                    <select class='border-2 rounded-md my-navy-border bg-transparent p-2 w-full'
-                    v-model="resultsCount"
-                        
-                    >
+                    <select id="results" class='border-2 rounded-md my-navy-border bg-transparent p-2 w-full'
+                    v-model="resultsCount">
                         <option value="10">10</option>
                         <option value="20">20</option>
                         <option value="50">50</option>
