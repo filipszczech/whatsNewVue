@@ -6,9 +6,10 @@
             </div>
         </router-link>
         <div class='hidden sm:flex justify-between gap-12'>
-            <div class='py-1 mx-5 text-center hover:scale-105 my-hover-effect'>Polska</div>
             <div class='py-1 mx-5 text-center hover:scale-105 my-hover-effect'>News API</div>
-            <div class='py-1 mx-5 text-center hover:scale-105 my-hover-effect'>O projekcie</div>
+            <div class='py-1 mx-5 text-center hover:scale-105 my-hover-effect'>
+                <router-link to="/analysis">Analiza</router-link>
+            </div>
             <div>
                 <router-link to="/explore"><button class='py-1 px-5 text-center text-gray-100 rounded-md my-yellow-bg hover:scale-105 my-hover-effect'>Eksploruj</button></router-link>
             </div>

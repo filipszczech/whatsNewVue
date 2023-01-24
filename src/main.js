@@ -5,7 +5,7 @@ import { createRouter, createWebHashHistory } from 'vue-router'
 import App from './App.vue'
 import HomePage from './components/pages/HomePage.vue'
 import ExplorePage from './components/pages/ExplorePage.vue'
-// import AboutPage from './components/pages/AboutPage.vue'
+import AnalysisPage from './components/pages/AnalysisPage.vue'
 // import PolskaPage from './components/pages/PolskaPage.vue'
 import './assets/tailwind.css'
 
@@ -14,7 +14,7 @@ const router = createRouter({
   routes: [
     { path: '/', component: HomePage },
     { path: '/explore', component: ExplorePage },
-    // { path: '/about', component: About },
+    { path: '/analysis', component: AnalysisPage },
     // { path: '/polska', component: Polska }
   ]
 });
