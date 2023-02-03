@@ -6,7 +6,6 @@ import App from './App.vue'
 import HomePage from './components/pages/HomePage.vue'
 import ExplorePage from './components/pages/ExplorePage.vue'
 import AnalysisPage from './components/pages/AnalysisPage.vue'
-// import PolskaPage from './components/pages/PolskaPage.vue'
 import './assets/tailwind.css'
 
 const router = createRouter({
@@ -15,7 +14,6 @@ const router = createRouter({
     { path: '/', component: HomePage },
     { path: '/explore', component: ExplorePage },
     { path: '/analysis', component: AnalysisPage },
-    // { path: '/polska', component: Polska }
   ]
 });
 

@@ -1,11 +1,6 @@
 <template>
     <div class="grid grid-cols-1 md:grid-cols-2 w-full px-3 sm:px-5 pb-3 h-5/6 overflow-y-hidden">
         <analysis-form
-          :article="article"
-          :isLoading="isLoading"
-          :dataLoaded="dataLoaded"
-          @toggle-is-loading="toggleIsLoading"
-          @toggle-data-loaded="toggleDataLoaded"
           @set-article="setArticle"
         ></analysis-form>
         <div class='px-5 pt-5 lg:pt-10'>
@@ -13,9 +8,14 @@
               <analysis-content v-if='article'
               :article="article"
               >
-                <template #card-content>
-                    <div class='grid grid-cols-5 gap-5 w-full h-1/4 mb-5 rounded-xl'>
-                        <div class="col-span-1 rounded-md shadow-lg overflow-hidden">
+                <template v-if="article == 'wrong'" #card-content>
+                  <div className='h-full rounded-xl flex content-center text-4xl text-center font-semibold my-navy-font'>
+                        <div className='my-auto mx-auto'>Analiza zakończyła się niepowodzeniem :(</div>
+                  </div>
+                </template>
+                <template v-else #card-content>
+                    <div class='grid grid-cols-6 gap-5 w-full h-1/4 mb-5 rounded-xl'>
+                        <div class="col-span-2 rounded-md shadow-lg overflow-hidden">
                             <img class='h-full w-full object-cover' :src="article.image" alt='article-img'/>
                         </div>
                         <div class='h-full flex flex-col justify-between col-span-4 my-navy-font'>
@@ -61,21 +61,13 @@ export default {
   },
   data() {
     return {
-        isLoading: false,
-        dataLoaded: false,
         article: null,
     };
   },
   methods: {
-    toggleIsLoading(status){
-      this.isLoading = status
-    },
-    setArticle(artic){
-      this.article = artic
+    setArticle(article){
+      this.article = article
       console.log(this.article)
-    },
-    toggleDataLoaded(status){
-      this.dataLoaded = status
     },
   }
 }

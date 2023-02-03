@@ -16,7 +16,10 @@
         </div>
     </div>
     <div v-else class='px-5 pt-5 lg:pt-10'>
-        <div  class='mx-auto overflow-y-auto news-list' v-bind:style="{ 'height': '75vh' }">
+        <div v-if="articles.length == 0" class='mx-auto overflow-y-auto text-4xl flex content-center h-full font-semibold my-navy-font'>
+            <div className='my-auto mx-auto'>Nie znaleziono pasujących treści :(</div>
+        </div>
+        <div v-else class='mx-auto overflow-y-auto news-list' v-bind:style="{ 'height': '75vh' }">
             <explore-news-list 
                 :articles="articles"
                 @set-modal-open="setModalOpen"

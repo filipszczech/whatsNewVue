@@ -4,10 +4,10 @@
         <form @submit.prevent="handleSubmit">
             <div class='grid grid-cols-2 gap-5'>
                 <div class='w-full col-span-2'>
-                    <label for="key-word"><p class='my-navy-font text-2xl sm:text-3xl font-semibold mb-2'>Wprowadź link artykułu do analizy:</p></label>
+                    <label for="url-input"><p class='my-navy-font text-2xl sm:text-3xl font-semibold mb-2'>Wprowadź link artykułu do analizy:</p></label>
                     <br>
                     <div class='flex justify-between gap-5'>
-                        <input id="key-word"
+                        <input id="url-input"
                         class='border-2 rounded-md bg-transparent p-2 w-full border-indigo-900 active:border-yellow-500'
                             type="text"
                             v-model="articleUrl"  
@@ -33,32 +33,23 @@
 import axios from 'axios'
 
 export default {
-  props: ['isLoading', 'dataLoaded'],
   data() {
     return {
         articleUrl: '',
         errorActive: false,
-        errorResponse: false
+        isLoading: false
     };
   },
   methods: {
     handleSubmit() {
         this.errorActive = false
-        this.errorResponse = true
         if(this.articleUrl == ''){
             this.errorActive = true
             return 0;
         }
-        if(this.dataLoaded){
-            this.$emit('toggle-data-loaded', false)
-        }
-        this.$emit('toggle-is-loading', true)
+        this.isLoading = true
 
         this.fetchAnalysisArticle()
-        setTimeout(() => {
-            this.$emit('toggle-is-loading', false)
-            this.$emit('toggle-data-loaded', true)
-        }, 500);
     },
     async fetchAnalysisArticle() {
         try {
@@ -68,12 +59,17 @@ export default {
                 + `&apiKey=da1595a0-0013-444e-8eb4-2e30d17dbe27`
             );
             console.log(res.data);
-            this.$emit('set-article', res.data)
+            if(res.data['error']){
+                this.$emit('set-article', 'wrong')
+            }
+            else{
+                this.$emit('set-article', res.data)
+            }
+            this.isLoading = false
             
         }
         catch(error) {
             console.log(`error: ${error}`);
-            this.errorResponse = true
         }
     }
   },

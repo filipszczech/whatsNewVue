@@ -79,10 +79,6 @@ export default {
         }
         this.$emit('toggle-is-loading', true)
         this.fetchFilteredNews()
-        setTimeout(() => {
-            this.$emit('toggle-is-loading', false)
-            this.$emit('toggle-data-loaded', true)
-        }, 2000);
     },
     async fetchFilteredNews() {
         try {
@@ -102,6 +98,8 @@ export default {
                 + `&apiKey=da1595a0-0013-444e-8eb4-2e30d17dbe27`
             );
             this.$emit('set-articles', res.data.articles.results)
+            this.$emit('toggle-is-loading', false)
+            this.$emit('toggle-data-loaded', true)
             
         }
         catch(error) {
